@@ -6,12 +6,21 @@ import './App.css'
 function App() {
 
     const [questions, setQuestions] = useState(data);
+    const [activeId, setActiveId] = useState(null);
+
+    const toggleQuestion = (id) => {
+        const newActiveId = id === activeId ? null : id
+        setActiveId(newActiveId)
+        console.log(id)
+    }
 
     return (
         <main>
-            <section>
-                <Questions questions={questions}/>
-            </section>
+            <Questions
+                questions={questions}
+                activeId={activeId}
+                toggleQuestion={toggleQuestion}
+            />
         </main>
     );
 }

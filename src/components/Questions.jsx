@@ -1,14 +1,18 @@
 import React from 'react';
 import SingleQuestion from "./SingleQuestion";
 
-const Questions = ({questions}) => {
+const Questions = ({questions, toggleQuestion, activeId}) => {
 
     return (
         <section>
             <h1>Questions</h1>
-            {questions.map((question)=>{
-                return(
-                    <SingleQuestion key={question.id} {...question}/>
+            {questions.map((question) => {
+                return (
+                    <SingleQuestion
+                        key={question.id}
+                        {...question}
+                        activeId={activeId}
+                        toggleQuestion={toggleQuestion}/>
                 )
             })}
         </section>
